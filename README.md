@@ -19,6 +19,8 @@ projects\astro\astro-netlify-sanity\node_modules\.vite\deps_temp_d6cc5895
 
 Notes: 
 
+- first, this is a Development error (npm run dev). Builds are successful and deploy fine to Netlify, producing an expected error on launching the Studio, because this minimal repo includes only enough to show the fault. As follows....
+
 - This fault will occur on your first launch, when the development project is exercised on Windows (11 latest). An extra version of node_modules/.vite/deps will be found, due to the error.
 
 
