@@ -3,8 +3,38 @@
 ```sh
 npm create astro@latest -- --template minimal
 ```
+## Added Sanity-Astro with Studio for testing
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+If it worked, this minimalization would halt asking for a Sanity projectId once the Studio comes up. This takes some time in dev, while Vite does some work.
+
+At the point of publishing this repo, in dev mode, clicking the link for the Studio will fail with blank screen.
+
+After the time mentioned, the dev console will announce the failure:
+
+```
+08:35:12 [ERROR] [vite] error while updating dependencies:
+Error: EPERM: operation not permitted, rename 'C:\vger\projects\astro\astro-netlify-sanity\node_modules\.vite\deps' -> 'C:\vger\
+projects\astro\astro-netlify-sanity\node_modules\.vite\deps_temp_d6cc5895
+```
+
+Notes: 
+
+- This fault will occur on your first launch, when the development project is exercised on Windows (11 latest). An extra version of node_modules/.vite/deps will be found, due to the error.
+
+
+- To assure a repeat the error, stop the dev environment and delete any deps folders in node_modules/.vite (dot-vite). Then run dev again and try the Studio launch or refresh its page. A code change will also cause a fresh deps attempt thus the error.
+
+
+- Various kinds of attempts to cause Vite not to optimize deps haven't been successful stopping the evident second attempt when loading the studio module, and the lore is that this is not reliable.
+
+
+- On Linux development arrangements, there is no failure at all. The hint then that @astrojs/netlify's Vite is asking something when in dev mode that isn't compatible with the Windows filesystem, at the time it tries to load the large studio component.
+
+
+- Many of the persons who are attracted to Astro are likely to prefer to develop in Windows, one may suggest...
+
+
+- This same code works correctly on Windows with @astrojs/netlify@6.4.1 or earlier, as does the full blog-with-Studio app it's reduced from.
 
 ## 🚀 Project Structure
 

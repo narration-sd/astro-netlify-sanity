@@ -1,5 +1,5 @@
 {
-  "name": "astro-baby",
+  "name": "astro-netlify-sanity",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.12.8"
+    "@astrojs/netlify": "^6.5.5",
+    "@astrojs/react": "^4.3.0",
+    "@sanity/astro": "^3.2.10",
+    "astro": "^5.12.8",
+    "sanity": "^4.2.0"
   }
 }
